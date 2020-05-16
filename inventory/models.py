@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import URLValidator
+from datetime import datetime, timedelta
 
 
 
@@ -71,10 +72,18 @@ class Order(models.Model):
 
 """ Shopping Cart Table, defines atrributes of Shopping cart  """
 class ShoppingCart(models.Model):
-    items = models.ManyToManyField('inventory.OrderItem')
+    items = models.ManyToManyField('inventory.ItemInventory')
 
     is_active = models.BooleanField(default=True)
     validity = models.DateTimeField()
+
+
+    def save(self, *args, **kwargs):
+        """ Add Validity on Shooping Cart save """
+        if not self.pk:
+            validity = datetime.now() + timedelta(0, 600) # Add 10 minutes validity
+            self.validity = validity
+        return super(ShoppingCart, self).save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.validity}"
