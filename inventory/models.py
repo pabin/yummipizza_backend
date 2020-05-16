@@ -17,13 +17,13 @@ class ItemInventory(models.Model):
     item_type = models.CharField(max_length=8, choices=TYPE_CHOICES)
     item_image = models.TextField(validators=[URLValidator()])
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
     is_active = models.BooleanField(default=True)
 
     # Item Reviews and ratings
     item_reviews = models.ManyToManyField('reviews.ItemReview')
     ratings = models.ManyToManyField('reviews.ItemRating')
-    
+
     def __str__(self):
         return f"{self.name} - Medium: {self.ms_price} Large: {self.ls_price} "
 
