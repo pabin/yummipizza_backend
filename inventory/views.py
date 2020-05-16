@@ -1,6 +1,7 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
+from rest_framework.pagination import PageNumberPagination
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -40,7 +41,7 @@ class ShoppingCartCreateAPIView(APIView):
                 with transaction.atomic():
                     serializer.save()
                     user.carts.add(serializer.data['id'])
-                    return Response(serializer.data)
+                    return Response(serializer.data, status=status.HTTP_200_OK)
 
             except Exception as e:
                 print("Exception: ", e)
@@ -64,7 +65,7 @@ class ShoppingCartRUAPIView(generics.RetrieveUpdateAPIView):
             cart.items.add(item)
 
         serializer = ShoppingCartSerializer(cart)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 
@@ -106,7 +107,7 @@ class OrderCreateAPIView(APIView):
                             order_obj.order_items.add(order_item['id'])
 
                         serializer = OrderSerializer(order_obj)
-                        return Response(serializer.data)
+                        return Response(serializer.data, status=status.HTTP_200_OK)
                     else:
                         return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -118,13 +119,13 @@ class OrderCreateAPIView(APIView):
 
 
 """ List all User Orders """
-class OrderListAPIView(APIView):
+class OrderListAPIView(generics.ListAPIView):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
+    serializer_class = OrderSerializer
 
-    def get(self, request, format=None):
-        user = request.user
-        user_orders = user.orders.all()
-        print("user_orders", user_orders)
-        serializer = OrderSerializer(user_orders, many=True)
-        return Response(serializer.data)
+
+    """ Returns all the orders of authenticated user """
+    def get_queryset(self):
+        user = self.request.user
+        return user.orders.all()
