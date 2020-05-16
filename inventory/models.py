@@ -20,6 +20,10 @@ class ItemInventory(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
 
+    # Item Reviews and ratings
+    item_reviews = models.ManyToManyField('reviews.ItemReview')
+    ratings = models.ManyToManyField('reviews.ItemRating')
+    
     def __str__(self):
         return f"{self.name} - Medium: {self.ms_price} Large: {self.ls_price} "
 
@@ -58,6 +62,7 @@ class Order(models.Model):
     status = models.CharField(max_length=16, choices=ORDER_STATUS)
 
     is_active = models.BooleanField(default=True)
+
 
     def __str__(self):
         return f"{self.order_items}- {self.total_price}"
