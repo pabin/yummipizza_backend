@@ -9,7 +9,7 @@ staticfiles
 __pycache__/
 *.py[cod]
 *$py.class
-
+**/__pycache__
 
 # ignore logs folder
 logs/

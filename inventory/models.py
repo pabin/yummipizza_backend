@@ -77,4 +77,4 @@ class ShoppingCart(models.Model):
     validity = models.DateTimeField()
 
     def __str__(self):
-        return f"{self.order}"
+        return f"{self.validity}"
