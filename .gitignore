@@ -1,0 +1,15 @@
+
+# Database stuff
+*.sqlite3
+
+db.sqlite3
+staticfiles
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# ignore logs folder
+logs/
