@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 
+from django.db import transaction
 from django.shortcuts import get_object_or_404
 
 from accounts.serializers import UserSerializer
@@ -31,12 +32,12 @@ class ShoppingCartCreateAPIView(APIView):
     def post(self, request, format=None):
         user = request.user
         print(user)
-        print(typeof(user))
+        print(type(user))
 
         # user_serializer = UserSerializer(user)
         # orderitem_serializer = OrderItemSerializer(data=request.data)
 
-        serializer = ShoppingCartSerializer(data=request.data)
+        serializer = ShoppingCartSerializer(data=request.data, partial=True)
         if serializer.is_valid():
             try:
                 with transaction.atomic():

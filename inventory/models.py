@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import URLValidator
-from datetime import datetime, timedelta
+from datetime import timedelta
+from django.utils import timezone
+import pytz
 
 
 
@@ -81,7 +83,7 @@ class ShoppingCart(models.Model):
     def save(self, *args, **kwargs):
         """ Add Validity on Shooping Cart save """
         if not self.pk:
-            validity = datetime.now() + timedelta(0, 600) # Add 10 minutes validity
+            validity = timezone.now() + timedelta(0, 600) # Add 10 minutes validity
             self.validity = validity
         return super(ShoppingCart, self).save(*args, **kwargs)
 

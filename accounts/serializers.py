@@ -1,8 +1,9 @@
 from rest_framework import serializers
-from datetime import datetime, timedelta
+from datetime import timedelta
+from django.utils import timezone
 
+from inventory.serializers import ShoppingCartSerializer
 from .models import *
-
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -14,11 +15,9 @@ class UserSerializer(serializers.ModelSerializer):
         depth = 1
 
     def get_valid_cart(self, obj):
-        time_now = datetime.now()
+        time_now = timezone.now()
         valid_cart = obj.carts.filter(validity__gte=time_now, is_active=True)
-        print('valid_cart', valid_cart)
-        # return valid_cart
+
         if valid_cart:
-            return valid_cart[0]
-        else:
-            return None
+            return ShoppingCartSerializer(valid_cart[0]).data
+        return None
