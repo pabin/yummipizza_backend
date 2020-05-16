@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Djagno APPS
+    'accounts',
+    'inventory',
+    'reviews',
+
     # Django Rest Framework
     'rest_framework',
     'rest_framework.authtoken',
@@ -85,6 +90,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'yummipizza.wsgi.application'
+
+AUTH_USER_MODEL = 'accounts.User'
 
 
 # Database
