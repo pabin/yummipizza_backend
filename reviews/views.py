@@ -8,6 +8,7 @@ from rest_framework import status
 
 from django.db import transaction
 from django.shortcuts import get_object_or_404
+from django.db.models import Sum
 
 from .serializers import *
 from inventory.models import ItemInventory
@@ -48,3 +49,56 @@ class ItemReviewCreateAPIView(APIView):
                 print("Exception: ", e)
                 return Response({"error": True}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+""" Get Total Ratings count and Average Item Ratings of a Item """
+class ItemReviewListAPIView(APIView):
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, request, format=None):
+        item_id = request.query_params.get('item_id')
+        item =  get_object_or_404(ItemInventory, id=item_id)
+        item_ratings = item.ratings.all()
+
+        ratings_count = item_ratings.count()
+        rating_sum = item_ratings.aggregate(Sum('rating'))['rating__sum']
+        average_rating = rating_sum / ratings_count
+
+        return Response({"total_ratings": ratings_count, "average_rating": average_rating}, status=status.HTTP_200_OK)
+
+
+
+""" Create Item Rating, and add to Item Inventory Instance """
+class ItemRatingCreateAPIView(APIView):
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, item_id, format=None):
+        item =  get_object_or_404(ItemInventory, id=item_id)
+
+        try:
+            user_rating = item.ratings.get(user=request.user, )
+            print("user_rating", user_rating)
+            serializer = ItemRatingSerializer(user_rating, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            else:
+                Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except:
+            """ No User rating for this item, create new rating  """
+            serializer = ItemRatingSerializer(data=request.data, partial=True)
+            if serializer.is_valid():
+                try:
+                    with transaction.atomic():
+                        serializer.save()
+                        item.ratings.add(serializer.data['id'])
+                        return Response(serializer.data, status=status.HTTP_200_OK)
+                except Exception as e:
+                    print("Exception: ", e)
+                    return Response({"error": True}, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
