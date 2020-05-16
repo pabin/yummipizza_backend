@@ -1,0 +1,222 @@
+[
+  {
+  "model": "inventory.ItemInventory",
+  "pk": 1,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Garlic Twist",
+    "ls_price": 20,
+    "ms_price": 14,
+    "item_image": "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 2,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Hawaiian",
+    "ls_price": 22,
+    "ms_price": 16,
+    "item_image": "https://cdn.pixabay.com/photo/2016/11/29/13/02/cheese-1869708_960_720.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 3,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Royal",
+    "ls_price": 24,
+    "ms_price": 18,
+    "item_image": "https://cdn.pixabay.com/photo/2016/03/05/21/45/pizza-1239077_960_720.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 4,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Tandoori",
+    "ls_price": 26,
+    "ms_price": 20,
+    "item_image": "https://cdn.pixabay.com/photo/2015/12/07/22/32/pizza-1081543__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 5,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Veggie Royal",
+    "ls_price": 18,
+    "ms_price": 12,
+    "item_image": "https://cdn.pixabay.com/photo/2015/02/13/11/04/pizza-634967__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 6,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Corn and Chicken Hawaiian",
+    "ls_price": 20,
+    "ms_price": 15,
+    "item_image": "https://cdn.pixabay.com/photo/2018/03/04/20/05/pizza-3199081__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 7,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Spicy Chicken",
+    "ls_price": 22,
+    "ms_price": 16,
+    "item_image": "https://cdn.pixabay.com/photo/2015/10/17/20/22/margherita-pizza-993274__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 8,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Hawaiian",
+    "ls_price": 20,
+    "ms_price": 15,
+    "item_image": "https://cdn.pixabay.com/photo/2016/02/16/07/39/pizza-1202775__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 9,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Hawaiian",
+    "ls_price": 25,
+    "ms_price": 18,
+    "item_image": "https://cdn.pixabay.com/photo/2016/03/05/21/47/american-1239091__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 10,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Chicken Hawaiian",
+    "ls_price": 18,
+    "ms_price": 14,
+    "item_image": "https://cdn.pixabay.com/photo/2017/01/22/19/12/pizza-2000595__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 11,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Veggie Royal",
+    "ls_price": 16,
+    "ms_price": 12,
+    "item_image": "https://cdn.pixabay.com/photo/2016/02/19/11/30/pizza-1209748_960_720.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 12,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Veggie Mix",
+    "ls_price": 15,
+    "ms_price": 10,
+    "item_image": "https://cdn.pixabay.com/photo/2016/04/21/22/50/pizza-1344720_960_720.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 13,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Paneer Mashala",
+    "ls_price": 18,
+    "ms_price": 14,
+    "item_image": "https://cdn.pixabay.com/photo/2016/02/04/16/16/pizza-1179404__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 14,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Garlic Twist",
+    "ls_price": 20,
+    "ms_price": 16,
+    "item_image": "https://cdn.pixabay.com/photo/2014/07/08/12/34/pizza-386717__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 15,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Cheese Margherita",
+    "ls_price": 22,
+    "ms_price": 18,
+    "item_image": "https://cdn.pixabay.com/photo/2017/01/22/19/12/pizza-2000600__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 16,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Veggie Paradise Hawaiian",
+    "ls_price": 16,
+    "ms_price": 12,
+    "item_image": "https://cdn.pixabay.com/photo/2017/06/07/10/53/pizza-2380025__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 17,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Fresh Veggie",
+    "ls_price": 14,
+    "ms_price": 8,
+    "item_image": "https://cdn.pixabay.com/photo/2016/02/16/07/39/pizza-1202775__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 18,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Tandoori Paneer Hawaiian",
+    "ls_price": 16,
+    "ms_price": 10,
+    "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 19,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Cheese and Corn",
+    "ls_price": 18,
+    "ms_price": 12,
+    "item_image": "https://cdn.pixabay.com/photo/2018/04/11/03/13/food-3309418__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 20,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Peppy Paneer",
+    "ls_price": 20,
+    "ms_price": 14,
+    "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
+  }
+},
+]

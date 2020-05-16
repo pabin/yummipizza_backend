@@ -4,7 +4,7 @@ from django.core.validators import URLValidator
 
 
 
-""" User Table """
+""" User Table, defines attributes of a User """
 class User(AbstractUser):
     class Meta:
         default_permissions = ()
@@ -13,13 +13,16 @@ class User(AbstractUser):
     contact = models.ForeignKey('accounts.ContactDetail', on_delete=models.SET_NULL, null=True)
     user_image = models.TextField(validators=[URLValidator()])
 
+    orders = models.ManyToManyField('inventory.Order')
+    carts = models.ManyToManyField('inventory.ShoppingCart')
+
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.username
 
 
-""" Address Table """
+""" Address Table, defines atrributes of Address """
 class Address(models.Model):
     name = models.CharField(max_length=64)
     street = models.CharField(max_length=32)
@@ -32,7 +35,7 @@ class Address(models.Model):
         return f"{self.name} - {self.city} : {self.state}"
 
 
-""" Contact Details Table """
+""" Contact Details Table, defines attributes of Contact Details """
 class ContactDetail(models.Model):
     mobile = models.CharField(max_length=10)
     email = models.EmailField(max_length=32)
