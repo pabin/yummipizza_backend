@@ -21,3 +21,15 @@ class UserSerializer(serializers.ModelSerializer):
         if valid_cart:
             return ShoppingCartSerializer(valid_cart[0]).data
         return None
+
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = "__all__"
+
+
+class ContactDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactDetail
+        fields = "__all__"

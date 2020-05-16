@@ -50,6 +50,7 @@ class OrderItem(models.Model):
 """ Order Table, defines attributes of order, can have multiple order items"""
 class Order(models.Model):
     ORDER_STATUS = [
+        ("PENDING", "Pending"),
         ("DELIVERED", "Delivered"),
         ("ON_HOLD", "On Hold"),
         ("CANCELLED", "Cancelled")
@@ -68,7 +69,7 @@ class Order(models.Model):
 
 
     def __str__(self):
-        return f"{self.order_items}- {self.total_price}"
+        return f"Total Items: {self.order_items.all().count()} - Total Price: {self.total_price}"
 
 
 
