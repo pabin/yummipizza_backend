@@ -6,6 +6,7 @@ from inventory.serializers import ShoppingCartSerializer
 from .models import *
 
 
+
 class UserSerializer(serializers.ModelSerializer):
     valid_cart = serializers.SerializerMethodField()
 
@@ -21,6 +22,14 @@ class UserSerializer(serializers.ModelSerializer):
         if valid_cart:
             return ShoppingCartSerializer(valid_cart[0]).data
         return None
+
+
+
+class BasicUserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'first_name', 'last_name', 'user_image']
+
 
 
 class AddressSerializer(serializers.ModelSerializer):
