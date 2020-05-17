@@ -33,7 +33,8 @@ CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'https://theyp.herokuapp.com/'
+    'https://theyp.herokuapp.com/',
+    'https://mytheyp8979.herokuapp.com/'
 )
 
 # Application definition
