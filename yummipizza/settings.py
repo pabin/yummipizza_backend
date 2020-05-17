@@ -27,7 +27,7 @@ SECRET_KEY = 'x0!7#$1vg(*qlthci2w^^j=e^_svp+o%(s_7+*^t^ldg200u-d'
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://yummipizza-be-server.herokuapp.com/']
 
 
 # Application definition
