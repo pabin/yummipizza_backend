@@ -17,8 +17,8 @@ from .serializers import *
 
 """ List all Item Inventory """
 class ItemInventoryListAPIView(generics.ListAPIView):
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    # authentication_classes = (TokenAuthentication, )
+    # permission_classes = (IsAuthenticated, )
     queryset = ItemInventory.objects.filter(is_active=True)
     serializer_class = ItemInventorySerializer
 
@@ -61,7 +61,7 @@ class ShoppingCartRUAPIView(generics.RetrieveUpdateAPIView):
         # items = ast.literal_eval(request.data['items'])
 
         items = request.data['items']
-        
+
         for item in items:
             cart.items.add(item)
 
