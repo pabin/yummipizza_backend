@@ -56,8 +56,11 @@ class ShoppingCartRUAPIView(generics.RetrieveUpdateAPIView):
 
     def put(self, request, pk, format=None):
         cart = get_object_or_404(ShoppingCart, id=pk)
-        items = ast.literal_eval(request.data['items'])
-
+        # items = ast.literal_eval(request.data['items'])
+        items = request.data['items']
+        print("items", items)
+        print("items type", type(items))
+        
         for item in items:
             cart.items.add(item)
 
