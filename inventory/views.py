@@ -8,6 +8,7 @@ from rest_framework import status
 
 from django.db import transaction
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 import ast
 
 from accounts.serializers import *
@@ -107,7 +108,13 @@ class OrderCreateAPIView(APIView):
                         for order_item in orderitem_serializer.data:
                             order_obj.order_items.add(order_item['id'])
 
-                        serializer = OrderSerializer(order_obj)
+                        # Make current cart inactive after order is created
+                        time_now = timezone.now()
+                        valid_cart = user.carts.filter(validity__gte=time_now, is_active=True)[0]
+                        valid_cart.is_active = False
+                        valid_cart.save()
+
+                        serializer = UserSerializer(user)
                         return Response(serializer.data, status=status.HTTP_200_OK)
                     else:
                         return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
