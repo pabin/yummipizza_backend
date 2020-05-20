@@ -95,12 +95,29 @@ class ShoppingCartCreateAPIView(APIView):
     def post(self, request, format=None):
         user = request.user
 
-        serializer = ShoppingCartSerializer(data=request.data, partial=True)
-        if serializer.is_valid():
+
+        cart_item = {
+        "item_id": 1,
+        "quantity": 1,
+        "size": "MEDIUM"
+        }
+
+        cartitem_serializer = ShoppingCartItemSerializer(data=request.data['cart_item'])
+        # cartitem_serializer = ShoppingCartItemSerializer(data=cart_item)
+        cart_serializer = ShoppingCartSerializer(data={"active":True}, partial=True)
+
+        if cart_serializer.is_valid() and cartitem_serializer.is_valid():
             try:
                 with transaction.atomic():
-                    serializer.save()
-                    user.carts.add(serializer.data['id'])
+                    cartitem_serializer.save()
+                    cart_serializer.save()
+
+                    cart = get_object_or_404(ShoppingCart, id=cart_serializer.data['id'])
+                    cart.cart_items.add(cartitem_serializer.data['id'])
+
+                    user.carts.add(cart_serializer.data['id'])
+
+                    serializer = ShoppingCartSerializer(cart)
                     return Response(serializer.data, status=status.HTTP_200_OK)
 
             except Exception as e:
@@ -123,14 +140,30 @@ class ShoppingCartRUAPIView(generics.RetrieveUpdateAPIView):
         # below line is required while testing from postman, but not from react app
         # items = ast.literal_eval(request.data['items'])
 
-        items = request.data['items']
+        serializer = ShoppingCartItemSerializer(data=request.data['cart_item'])
 
-        for item in items:
-            cart.items.add(item)
+        if serializer.is_valid():
+            try:
+                with transaction.atomic():
+                    serializer.save()
+                    cart.cart_items.add(serializer.data['id'])
 
-        serializer = ShoppingCartSerializer(cart)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+                    cart_serializer = ShoppingCartSerializer(cart)
+                    return Response(cart_serializer.data, status=status.HTTP_200_OK)
 
+            except Exception as e:
+                print("Exception: ", e)
+                return Response({"error": True, "message": "Exception"})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+""" Retrieves or Updates or deletes Shopping Cart Instance """
+class CartItemRUAPIView(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    queryset = ShoppingCartItem.objects.all()
+    serializer_class = ShoppingCartItemSerializer
 
 
 """ Create Order Items and Order Instances, add order to User Instance """

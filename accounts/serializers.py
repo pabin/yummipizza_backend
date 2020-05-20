@@ -17,7 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def get_valid_cart(self, obj):
         time_now = timezone.now()
-        valid_cart = obj.carts.filter(validity__gte=time_now, is_active=True)
+        valid_cart = obj.carts.filter(validity__gte=time_now, is_active=True).order_by('-id')
 
         if valid_cart:
             return ShoppingCartSerializer(valid_cart[0]).data

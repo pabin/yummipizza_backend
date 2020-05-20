@@ -83,9 +83,25 @@ class Order(models.Model):
 
 
 
+
+""" Shopping Cart Item Table, Contains items selected by user """
+class ShoppingCartItem(models.Model):
+    SIZE_CHOICES = [
+        ("LARGE", "Large"),
+        ("MEDIUM", "Medium")
+    ]
+
+    item = models.ForeignKey('inventory.ItemInventory', on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    size = models.CharField(max_length=8, choices=SIZE_CHOICES)
+
+    def __str__(self):
+        return f"{self.item} - {self.quantity}"
+
+
 """ Shopping Cart Table, defines atrributes of Shopping cart  """
 class ShoppingCart(models.Model):
-    items = models.ManyToManyField('inventory.ItemInventory')
+    cart_items = models.ManyToManyField('inventory.ShoppingCartItem')
 
     is_active = models.BooleanField(default=True)
     validity = models.DateTimeField()

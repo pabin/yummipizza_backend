@@ -20,7 +20,7 @@ class ItemInventorySerializer(serializers.ModelSerializer):
 
         ratings_count = item_ratings.count()
         rating_sum = item_ratings.aggregate(Sum('rating'))['rating__sum'] or 0
-        average_rating = (rating_sum / ratings_count) if rating_sum > 0 else 0 
+        average_rating = (rating_sum / ratings_count) if rating_sum > 0 else 0
 
         return ({"total_ratings": ratings_count, "average_rating": average_rating})
 
@@ -54,14 +54,25 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 
+class ShoppingCartItemSerializer(serializers.ModelSerializer):
+    item = ItemInventorySerializer(read_only=True)
+    item_id = serializers.PrimaryKeyRelatedField(
+        queryset=ItemInventory.objects.all(), source='item', write_only=True
+        )
+
+    class Meta:
+        model = ShoppingCartItem
+        fields = '__all__'
+        depth = 1
+
+
+
 class ShoppingCartSerializer(serializers.ModelSerializer):
-    items_list = serializers.SerializerMethodField()
-    # items = ItemInventorySerializer(many=True)
+    cart_items = serializers.SerializerMethodField()
 
     class Meta:
         model = ShoppingCart
         fields = '__all__'
-        # depth = 1
 
-    def get_items_list(self, obj):
-        return ItemInventorySerializer(obj.items.all(), many=True).data
+    def get_cart_items(self, obj):
+        return ShoppingCartItemSerializer(obj.cart_items.all(), many=True).data
