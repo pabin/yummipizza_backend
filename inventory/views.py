@@ -92,8 +92,8 @@ class ItemFilterAPIView(generics.ListAPIView):
 
 """ List 6 most popular items """
 class PopularItemListAPIView(generics.ListAPIView):
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    # authentication_classes = (TokenAuthentication, )
+    # permission_classes = (IsAuthenticated, )
     serializer_class = ItemInventorySerializer
 
     def get_queryset(self):
