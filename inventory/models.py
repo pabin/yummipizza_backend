@@ -27,6 +27,10 @@ class ItemInventory(models.Model):
     item_reviews = models.ManyToManyField('reviews.ItemReview')
     ratings = models.ManyToManyField('reviews.ItemRating')
 
+    # For finding popular pizzas
+    views = models.IntegerField(default=0)
+
+
     def __str__(self):
         return f"{self.name} - Medium: {self.ms_price} Large: {self.ls_price} "
 

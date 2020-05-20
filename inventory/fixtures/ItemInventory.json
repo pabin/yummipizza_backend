@@ -7,7 +7,7 @@
     "name": "Chicken Garlic Twist",
     "ls_price": 20,
     "ms_price": 14,
-    "item_image": "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395__340.jpg"
+    "item_image": "https://cdn.pixabay.com/photo/2017/02/15/10/57/pizza-2068272__340.jpg"
   }
 },
 {
@@ -25,22 +25,22 @@
   "model": "inventory.ItemInventory",
   "pk": 3,
   "fields": {
-    "item_type": "NON_VEG",
-    "name": "Chicken Royal",
-    "ls_price": 24,
-    "ms_price": 18,
-    "item_image": "https://cdn.pixabay.com/photo/2016/03/05/21/45/pizza-1239077_960_720.jpg"
+    "item_type": "VEG",
+    "name": "Paneer Mashala",
+    "ls_price": 12,
+    "ms_price": 8,
+    "item_image": "https://cdn.pixabay.com/photo/2016/02/04/16/16/pizza-1179404__340.jpg"
   }
 },
 {
   "model": "inventory.ItemInventory",
   "pk": 4,
   "fields": {
-    "item_type": "NON_VEG",
-    "name": "Chicken Tandoori",
-    "ls_price": 26,
-    "ms_price": 20,
-    "item_image": "https://cdn.pixabay.com/photo/2015/12/07/22/32/pizza-1081543__340.jpg"
+    "item_type": "VEG",
+    "name": "Garlic Twist",
+    "ls_price": 28,
+    "ms_price": 22,
+    "item_image": "https://cdn.pixabay.com/photo/2014/07/08/12/34/pizza-386717__340.jpg"
   }
 },
 {
@@ -49,8 +49,8 @@
   "fields": {
     "item_type": "NON_VEG",
     "name": "Chicken Veggie Royal",
-    "ls_price": 18,
-    "ms_price": 12,
+    "ls_price": 10,
+    "ms_price": 6,
     "item_image": "https://cdn.pixabay.com/photo/2015/02/13/11/04/pizza-634967__340.jpg"
   }
 },
@@ -59,7 +59,7 @@
   "pk": 6,
   "fields": {
     "item_type": "NON_VEG",
-    "name": "Corn and Chicken Hawaiian",
+    "name": "Corn Chicken Hawaiian",
     "ls_price": 20,
     "ms_price": 15,
     "item_image": "https://cdn.pixabay.com/photo/2018/03/04/20/05/pizza-3199081__340.jpg"
@@ -69,22 +69,22 @@
   "model": "inventory.ItemInventory",
   "pk": 7,
   "fields": {
-    "item_type": "NON_VEG",
-    "name": "Spicy Chicken",
-    "ls_price": 22,
-    "ms_price": 16,
-    "item_image": "https://cdn.pixabay.com/photo/2015/10/17/20/22/margherita-pizza-993274__340.jpg"
+    "item_type": "VEG",
+    "name": "Fresh Veggie",
+    "ls_price": 14,
+    "ms_price": 8,
+    "item_image": "https://cdn.pixabay.com/photo/2016/02/16/07/39/pizza-1202775__340.jpg"
   }
 },
 {
   "model": "inventory.ItemInventory",
   "pk": 8,
   "fields": {
-    "item_type": "NON_VEG",
-    "name": "Chicken Hawaiian",
-    "ls_price": 20,
-    "ms_price": 15,
-    "item_image": "https://cdn.pixabay.com/photo/2016/02/16/07/39/pizza-1202775__340.jpg"
+    "item_type": "VEG",
+    "name": "Tandoori Paneer Hawaiian",
+    "ls_price": 34,
+    "ms_price": 26,
+    "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
   }
 },
 {
@@ -92,9 +92,9 @@
   "pk": 9,
   "fields": {
     "item_type": "NON_VEG",
-    "name": "Chicken Hawaiian",
-    "ls_price": 25,
-    "ms_price": 18,
+    "name": "Mutton Hawaiian",
+    "ls_price": 45,
+    "ms_price": 32,
     "item_image": "https://cdn.pixabay.com/photo/2016/03/05/21/47/american-1239091__340.jpg"
   }
 },
@@ -103,7 +103,7 @@
   "pk": 10,
   "fields": {
     "item_type": "NON_VEG",
-    "name": "Chicken Hawaiian",
+    "name": "Buff Special",
     "ls_price": 18,
     "ms_price": 14,
     "item_image": "https://cdn.pixabay.com/photo/2017/01/22/19/12/pizza-2000595__340.jpg"
@@ -115,8 +115,8 @@
   "fields": {
     "item_type": "VEG",
     "name": "Veggie Royal",
-    "ls_price": 16,
-    "ms_price": 12,
+    "ls_price": 10,
+    "ms_price": 6,
     "item_image": "https://cdn.pixabay.com/photo/2016/02/19/11/30/pizza-1209748_960_720.jpg"
   }
 },
@@ -135,22 +135,22 @@
   "model": "inventory.ItemInventory",
   "pk": 13,
   "fields": {
-    "item_type": "VEG",
-    "name": "Paneer Mashala",
-    "ls_price": 18,
-    "ms_price": 14,
-    "item_image": "https://cdn.pixabay.com/photo/2016/02/04/16/16/pizza-1179404__340.jpg"
+    "item_type": "NON_VEG",
+    "name": "Chicken Royal",
+    "ls_price": 24,
+    "ms_price": 18,
+    "item_image": "https://cdn.pixabay.com/photo/2016/03/05/21/45/pizza-1239077_960_720.jpg"
   }
 },
 {
   "model": "inventory.ItemInventory",
   "pk": 14,
   "fields": {
-    "item_type": "VEG",
-    "name": "Garlic Twist",
-    "ls_price": 20,
-    "ms_price": 16,
-    "item_image": "https://cdn.pixabay.com/photo/2014/07/08/12/34/pizza-386717__340.jpg"
+    "item_type": "NON_VEG",
+    "name": "Chicken Tandoori",
+    "ls_price": 10,
+    "ms_price": 6,
+    "item_image": "https://cdn.pixabay.com/photo/2015/12/07/22/32/pizza-1081543__340.jpg"
   }
 },
 {
@@ -170,8 +170,8 @@
   "fields": {
     "item_type": "VEG",
     "name": "Veggie Paradise Hawaiian",
-    "ls_price": 16,
-    "ms_price": 12,
+    "ls_price": 32,
+    "ms_price": 26,
     "item_image": "https://cdn.pixabay.com/photo/2017/06/07/10/53/pizza-2380025__340.jpg"
   }
 },
@@ -179,22 +179,22 @@
   "model": "inventory.ItemInventory",
   "pk": 17,
   "fields": {
-    "item_type": "VEG",
-    "name": "Fresh Veggie",
-    "ls_price": 14,
-    "ms_price": 8,
-    "item_image": "https://cdn.pixabay.com/photo/2016/02/16/07/39/pizza-1202775__340.jpg"
+    "item_type": "NON_VEG",
+    "name": "Spicy Chicken",
+    "ls_price": 22,
+    "ms_price": 16,
+    "item_image": "https://cdn.pixabay.com/photo/2015/10/17/20/22/margherita-pizza-993274__340.jpg"
   }
 },
 {
   "model": "inventory.ItemInventory",
   "pk": 18,
   "fields": {
-    "item_type": "VEG",
-    "name": "Tandoori Paneer Hawaiian",
-    "ls_price": 16,
-    "ms_price": 10,
-    "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
+    "item_type": "NON_VEG",
+    "name": "Chicken Hawaiian",
+    "ls_price": 26,
+    "ms_price": 20,
+    "item_image": "https://cdn.pixabay.com/photo/2016/02/16/07/39/pizza-1202775__340.jpg"
   }
 },
 {
@@ -214,9 +214,141 @@
   "fields": {
     "item_type": "VEG",
     "name": "Peppy Paneer",
+    "ls_price": 32,
+    "ms_price": 24,
+    "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 21,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Cheese Chicken Special",
+    "ls_price": 18,
+    "ms_price": 12,
+    "item_image": "https://thumbs.dreamstime.com/b/frozen-pizza-isolated-white-background-38842534.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 22,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Eastern Campagnola",
     "ls_price": 20,
     "ms_price": 14,
-    "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
+    "item_image": "https://cdn.pixabay.com/photo/2018/04/11/03/13/food-3309418__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 23,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Pizza al Pesto",
+    "ls_price": 22,
+    "ms_price": 16,
+    "item_image": "https://cdn.pixabay.com/photo/2018/04/11/03/13/food-3309418__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 24,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Mix Spinach Paneer",
+    "ls_price": 38,
+    "ms_price": 30,
+    "item_image": "https://cdn.pixabay.com/photo/2015/12/07/22/32/pizza-1081543__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 25,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Capricciosa Pizza",
+    "ls_price": 42,
+    "ms_price": 32,
+    "item_image": "https://thumbs6.dreamstime.com/b/frozen-pizza-cutting-board-143811051.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 26,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Quattro Stagioni",
+    "ls_price": 14,
+    "ms_price": 8,
+    "item_image": "https://thumbs4.dreamstime.com/b/cheap-greasy-frozen-pepperoni-pizza-ready-to-eat-88134544.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 27,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Braccio di Ferro",
+    "ls_price": 18,
+    "ms_price": 12,
+    "item_image": "https://thumbs5.dreamstime.com/b/cheap-greasy-frozen-pepperoni-pizza-ready-to-eat-88134501.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 28,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Spicy Hot Balado",
+    "ls_price": 12,
+    "ms_price": 8,
+    "item_image": "https://thumbs5.dreamstime.com/b/frozen-pizza-add-ons-wooden-board-61598684.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 29,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Salmon Teriyaki",
+    "ls_price": 26,
+    "ms_price": 18,
+    "item_image": "https://thumbs9.dreamstime.com/b/frozen-pepperoni-pizza-cutting-board-11793752.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 30,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Peperoni Spinach",
+    "ls_price": 22,
+    "ms_price": 14,
+    "item_image": "https://cdn.pixabay.com/photo/2017/01/22/19/20/pizza-2000615__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 31,
+  "fields": {
+    "item_type": "NON_VEG",
+    "name": "Rucola Pizza",
+    "ls_price": 24,
+    "ms_price": 16,
+    "item_image": "https://cdn.pixabay.com/photo/2015/04/07/19/49/pizza-711662__340.jpg"
+  }
+},
+{
+  "model": "inventory.ItemInventory",
+  "pk": 32,
+  "fields": {
+    "item_type": "VEG",
+    "name": "Veg Mexicana",
+    "ls_price": 22,
+    "ms_price": 8,
+    "item_image": "https://cdn.pixabay.com/photo/2013/07/18/20/24/cheese-164872__340.jpg"
   }
 }
 ]

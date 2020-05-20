@@ -19,9 +19,9 @@ from .serializers import *
 from reviews.models import ItemRating
 
 
+
 class CustomPagination(pagination.PageNumberPagination):
        page_size = 16
-
 
 
 """ List all Item Inventory """
