@@ -5,6 +5,7 @@ from rest_framework.authentication import TokenAuthentication, SessionAuthentica
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import pagination
 
 from django.db import transaction
 from django.db.models import Q
@@ -18,11 +19,14 @@ from .serializers import *
 from reviews.models import ItemRating
 
 
+class CustomPagination(pagination.PageNumberPagination):
+       page_size = 16
+
+
 
 """ List all Item Inventory """
 class ItemInventoryListAPIView(generics.ListAPIView):
-    # authentication_classes = (TokenAuthentication, )
-    # permission_classes = (IsAuthenticated, )
+    pagination_class=CustomPagination
     queryset = ItemInventory.objects.filter(is_active=True)
     serializer_class = ItemInventorySerializer
 
@@ -30,9 +34,8 @@ class ItemInventoryListAPIView(generics.ListAPIView):
 
 """ List Items based on user filter parameters """
 class ItemFilterAPIView(generics.ListAPIView):
-    # authentication_classes = (TokenAuthentication, )
-    # permission_classes = (IsAuthenticated, )
     serializer_class = ItemInventorySerializer
+    pagination_class=CustomPagination
 
     def get_queryset(self):
         types = self.request.query_params.getlist('types[]')
