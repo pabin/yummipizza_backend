@@ -7,6 +7,7 @@
     "name": "Chicken Garlic Twist",
     "ls_price": 20,
     "ms_price": 14,
+    "discount": 1,
     "item_image": "https://cdn.pixabay.com/photo/2017/02/15/10/57/pizza-2068272__340.jpg"
   }
 },
@@ -18,6 +19,7 @@
     "name": "Chicken Hawaiian",
     "ls_price": 22,
     "ms_price": 16,
+    "discount": 2,
     "item_image": "https://cdn.pixabay.com/photo/2016/11/29/13/02/cheese-1869708_960_720.jpg"
   }
 },
@@ -29,6 +31,7 @@
     "name": "Paneer Mashala",
     "ls_price": 12,
     "ms_price": 8,
+    "discount": 2,
     "item_image": "https://cdn.pixabay.com/photo/2016/02/04/16/16/pizza-1179404__340.jpg"
   }
 },
@@ -51,6 +54,7 @@
     "name": "Chicken Veggie Royal",
     "ls_price": 10,
     "ms_price": 6,
+    "discount": 3,
     "item_image": "https://cdn.pixabay.com/photo/2015/02/13/11/04/pizza-634967__340.jpg"
   }
 },
@@ -62,6 +66,7 @@
     "name": "Corn Chicken Hawaiian",
     "ls_price": 20,
     "ms_price": 15,
+    "discount": 3,    
     "item_image": "https://cdn.pixabay.com/photo/2018/03/04/20/05/pizza-3199081__340.jpg"
   }
 },
@@ -84,6 +89,7 @@
     "name": "Tandoori Paneer Hawaiian",
     "ls_price": 34,
     "ms_price": 26,
+    "discount": 4,
     "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
   }
 },
@@ -95,6 +101,7 @@
     "name": "Mutton Hawaiian",
     "ls_price": 45,
     "ms_price": 32,
+    "discount": 1,
     "item_image": "https://cdn.pixabay.com/photo/2016/03/05/21/47/american-1239091__340.jpg"
   }
 },
@@ -106,6 +113,7 @@
     "name": "Buff Special",
     "ls_price": 18,
     "ms_price": 14,
+    "discount": 4,
     "item_image": "https://cdn.pixabay.com/photo/2017/01/22/19/12/pizza-2000595__340.jpg"
   }
 },
@@ -128,6 +136,7 @@
     "name": "Veggie Mix",
     "ls_price": 15,
     "ms_price": 10,
+    "discount": 3,
     "item_image": "https://cdn.pixabay.com/photo/2016/04/21/22/50/pizza-1344720_960_720.jpg"
   }
 },
@@ -139,6 +148,7 @@
     "name": "Chicken Royal",
     "ls_price": 24,
     "ms_price": 18,
+    "discount": 2,
     "item_image": "https://cdn.pixabay.com/photo/2016/03/05/21/45/pizza-1239077_960_720.jpg"
   }
 },
@@ -150,6 +160,7 @@
     "name": "Chicken Tandoori",
     "ls_price": 10,
     "ms_price": 6,
+    "discount": 2,
     "item_image": "https://cdn.pixabay.com/photo/2015/12/07/22/32/pizza-1081543__340.jpg"
   }
 },
@@ -161,6 +172,7 @@
     "name": "Cheese Margherita",
     "ls_price": 22,
     "ms_price": 18,
+    "discount": 1,
     "item_image": "https://cdn.pixabay.com/photo/2017/01/22/19/12/pizza-2000600__340.jpg"
   }
 },
@@ -183,6 +195,7 @@
     "name": "Spicy Chicken",
     "ls_price": 22,
     "ms_price": 16,
+    "discount": 3,
     "item_image": "https://cdn.pixabay.com/photo/2015/10/17/20/22/margherita-pizza-993274__340.jpg"
   }
 },
@@ -205,6 +218,7 @@
     "name": "Cheese and Corn",
     "ls_price": 18,
     "ms_price": 12,
+    "discount": 3,
     "item_image": "https://cdn.pixabay.com/photo/2018/04/11/03/13/food-3309418__340.jpg"
   }
 },
@@ -216,6 +230,7 @@
     "name": "Peppy Paneer",
     "ls_price": 32,
     "ms_price": 24,
+    "discount": 3,
     "item_image": "https://cdn.pixabay.com/photo/2017/12/05/20/10/pizza-3000285__340.png"
   }
 },
@@ -249,6 +264,7 @@
     "name": "Pizza al Pesto",
     "ls_price": 22,
     "ms_price": 16,
+    "discount": 3,
     "item_image": "https://cdn.pixabay.com/photo/2018/04/11/03/13/food-3309418__340.jpg"
   }
 },
@@ -260,6 +276,7 @@
     "name": "Mix Spinach Paneer",
     "ls_price": 38,
     "ms_price": 30,
+    "discount": 4,
     "item_image": "https://cdn.pixabay.com/photo/2015/12/07/22/32/pizza-1081543__340.jpg"
   }
 },
@@ -271,6 +288,7 @@
     "name": "Capricciosa Pizza",
     "ls_price": 42,
     "ms_price": 32,
+    "discount": 3,
     "item_image": "https://thumbs6.dreamstime.com/b/frozen-pizza-cutting-board-143811051.jpg"
   }
 },
@@ -282,6 +300,7 @@
     "name": "Quattro Stagioni",
     "ls_price": 14,
     "ms_price": 8,
+    "discount": 3,
     "item_image": "https://thumbs4.dreamstime.com/b/cheap-greasy-frozen-pepperoni-pizza-ready-to-eat-88134544.jpg"
   }
 },
@@ -293,6 +312,7 @@
     "name": "Braccio di Ferro",
     "ls_price": 18,
     "ms_price": 12,
+    "discount": 1,
     "item_image": "https://thumbs5.dreamstime.com/b/cheap-greasy-frozen-pepperoni-pizza-ready-to-eat-88134501.jpg"
   }
 },
@@ -304,6 +324,7 @@
     "name": "Spicy Hot Balado",
     "ls_price": 12,
     "ms_price": 8,
+    "discount": 4,
     "item_image": "https://thumbs5.dreamstime.com/b/frozen-pizza-add-ons-wooden-board-61598684.jpg"
   }
 },
@@ -315,6 +336,7 @@
     "name": "Salmon Teriyaki",
     "ls_price": 26,
     "ms_price": 18,
+    "discount": 2,
     "item_image": "https://thumbs9.dreamstime.com/b/frozen-pepperoni-pizza-cutting-board-11793752.jpg"
   }
 },
@@ -326,6 +348,7 @@
     "name": "Peperoni Spinach",
     "ls_price": 22,
     "ms_price": 14,
+    "discount": 3,
     "item_image": "https://cdn.pixabay.com/photo/2017/01/22/19/20/pizza-2000615__340.jpg"
   }
 },
@@ -337,6 +360,7 @@
     "name": "Rucola Pizza",
     "ls_price": 24,
     "ms_price": 16,
+    "discount": 2,
     "item_image": "https://cdn.pixabay.com/photo/2015/04/07/19/49/pizza-711662__340.jpg"
   }
 },

@@ -29,6 +29,7 @@ class ItemInventory(models.Model):
 
     # For finding popular pizzas
     views = models.IntegerField(default=0)
+    discount = models.ForeignKey('inventory.Discount', on_delete=models.SET_NULL, null=True)
 
 
     def __str__(self):
@@ -120,3 +121,15 @@ class ShoppingCart(models.Model):
 
     def __str__(self):
         return f"{self.validity}"
+
+
+
+""" Discount Table for item discount """
+class Discount(models.Model):
+    code = models.CharField(max_length=8)
+    name = models.CharField(max_length=32)
+    discount_percent = models.IntegerField()
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.discount_percent}"

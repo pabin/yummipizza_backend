@@ -8,8 +8,17 @@ from accounts.models import (
 )
 
 
+
+class DiscountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Discount
+        fields = '__all__'
+
+
+
 class ItemInventorySerializer(serializers.ModelSerializer):
     ratings_value = serializers.SerializerMethodField()
+    discount = DiscountSerializer()
 
     class Meta:
         model = ItemInventory

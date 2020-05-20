@@ -1,0 +1,42 @@
+[
+{
+  "model": "inventory.Discount",
+  "pk": 1,
+  "fields": {
+    "code": "SPECIAL",
+    "name": "Special Discount",
+    "discount_percent": 10,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.Discount",
+  "pk": 2,
+  "fields": {
+    "code": "STAYHOME",
+    "name": "StayHome Discount",
+    "discount_percent": 25,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.Discount",
+  "pk": 3,
+  "fields": {
+    "code": "LOYALTY",
+    "name": "Loyalty Discount",
+    "discount_percent": 15,
+    "is_active": true
+  }
+},
+{
+  "model": "inventory.Discount",
+  "pk": 4,
+  "fields": {
+    "code": "HOLIDAY",
+    "name": "Holiday Offer",
+    "discount_percent": 20,
+    "is_active": true
+  }
+}
+]
