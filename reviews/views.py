@@ -17,8 +17,8 @@ from inventory.models import ItemInventory
 
 """ List all Item Reviews of a Item, with pagination """
 class ItemReviewListAPIView(generics.ListAPIView):
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+    # authentication_classes = (TokenAuthentication, )
+    # permission_classes = (IsAuthenticated, )
     queryset = ItemReview.objects.filter(is_archived=False)
     serializer_class = ItemReviewSerializer
 
