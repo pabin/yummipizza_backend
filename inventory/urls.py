@@ -13,4 +13,7 @@ urlpatterns = [
     path('order/', OrderCreateAPIView.as_view(), name='order_create'),
     path('user-orders/', OrderListAPIView.as_view(), name='user_orders'),
     path('order-filter/', OrderFilterAPIView.as_view(), name='order_filter'),
+
+    path('popular-items/', PopularItemListAPIView.as_view(), name='popular_items_list'),
+    path('items/<int:item_id>/', ItemViewsUpdateAPIView.as_view(), name='update_item_views'),
 ]

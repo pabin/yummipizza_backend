@@ -90,6 +90,31 @@ class ItemFilterAPIView(generics.ListAPIView):
 
 
 
+""" List 6 most popular items """
+class PopularItemListAPIView(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    serializer_class = ItemInventorySerializer
+
+    def get_queryset(self):
+        popular_items = ItemInventory.objects.filter().order_by('-views')[:6]
+        return popular_items
+
+
+
+""" Update the Views of a Item """
+class ItemViewsUpdateAPIView(APIView):
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+
+    def put(self, request, item_id, format=None):
+        item = get_object_or_404(ItemInventory, id=item_id)
+        item.views += 1
+        item.save()
+        return Response({"success": True})
+
+
+
 """ Create Shopping Cart Instance, add to User Instance """
 class ShoppingCartCreateAPIView(APIView):
     authentication_classes = (TokenAuthentication, )
