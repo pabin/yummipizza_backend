@@ -7,12 +7,15 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from django.db import transaction
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
+from datetime import datetime, timedelta
 import ast
 
 from accounts.serializers import *
 from .serializers import *
+from reviews.models import ItemRating
 
 
 
@@ -22,6 +25,65 @@ class ItemInventoryListAPIView(generics.ListAPIView):
     # permission_classes = (IsAuthenticated, )
     queryset = ItemInventory.objects.filter(is_active=True)
     serializer_class = ItemInventorySerializer
+
+
+
+""" List Items based on user filter parameters """
+class ItemFilterAPIView(generics.ListAPIView):
+    # authentication_classes = (TokenAuthentication, )
+    # permission_classes = (IsAuthenticated, )
+    serializer_class = ItemInventorySerializer
+
+    def get_queryset(self):
+        types = self.request.query_params.getlist('types[]')
+        prices = self.request.query_params.getlist('prices[]')
+        reviews = self.request.query_params.getlist('reviews[]')
+        sort_by = self.request.query_params.get('sort_by')
+
+        print('----------------')
+        print("types", types)
+        print("prices", prices)
+        print("reviews", reviews)
+        print("sort_by", sort_by)
+
+        active = Q(is_active=True)
+        itm_typ = Q(item_type__in=types) if types else Q()
+
+        p1 = p2 = p3 = p4 = p5 = Q()
+
+        for p in prices:
+            print("p", p)
+            if (p=="PRICE1"):
+                p1 = Q(ls_price__gte=1, ls_price__lte=10)
+
+            elif (p=="PRICE2"):
+                p2 = Q(ls_price__gte=11, ls_price__lte=20)
+
+            elif (p=="PRICE3"):
+                p3 = Q(ls_price__gte=21, ls_price__lte=30)
+
+            elif (p=="PRICE4"):
+                p4 = Q(ls_price__gte=31, ls_price__lte=40)
+
+            elif (p=="PRICE5"):
+                p5 = Q(ls_price__gte=41)
+
+        rev = rat = Q()
+        for r in reviews:
+            if (r=="REVIEWS"):
+                rev =  Q(item_reviews__isnull=False)
+            elif (r=="RATINGS"):
+                rat =  Q(ratings__isnull=False)
+
+        items = ItemInventory.objects.filter(active, itm_typ, p1 | p2 | p3 | p4 | p5, rev | rat)
+        # items2 = ItemInventory.objects.filter(item_reviews__isnull=False)
+        # print("items2", items2)
+        if (sort_by == "LOW_TO_HIGH"):
+            return items.order_by('ls_price')
+        elif (sort_by == "HIGHT_TO_LOW"):
+            return items.order_by('-ls_price')
+        else:
+            return items.order_by('id')
 
 
 
@@ -136,4 +198,56 @@ class OrderListAPIView(generics.ListAPIView):
     """ Returns all the orders of authenticated user """
     def get_queryset(self):
         user = self.request.user
-        return user.orders.all()
+        return user.orders.all().order_by('-id')
+
+
+
+""" List User Orders based on user order filter parameters """
+class OrderFilterAPIView(generics.ListAPIView):
+    authentication_classes = (TokenAuthentication, )
+    permission_classes = (IsAuthenticated, )
+    serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+
+        dates = self.request.query_params.getlist('dates[]')
+        prices = self.request.query_params.getlist('prices[]')
+        status = self.request.query_params.getlist('status[]')
+
+        print('----------------')
+        print("dates", dates)
+        print("prices", prices)
+        print("status", status)
+
+        active = Q(is_active=True)
+        status = Q(status__in=status) if status else Q()
+
+        p1 = p2 = p3 = p4 = p5 = Q()
+
+        for p in prices:
+            print("p", p)
+            if (p=="PRICE1"):
+                p1 = Q(total_price__gte=1, total_price__lte=50)
+
+            elif (p=="PRICE2"):
+                p2 = Q(total_price__gte=51, total_price__lte=100)
+
+            elif (p=="PRICE3"):
+                p3 = Q(total_price__gte=101, total_price__lte=200)
+
+            elif (p=="PRICE4"):
+                p4 = Q(total_price__gte=201)
+
+        last_7 = timezone.now().date() - timedelta(days=7)
+        last_14 = timezone.now().date() - timedelta(days=14)
+
+        ths_week = lst_week = all = Q()
+        for d in dates:
+            if (d=="THIS_WEEK"):
+                ths_week =  Q(ordered_at__gte=last_7)
+            elif (d=="LAST_WEEK"):
+                lst_week =  Q(ordered_at__gte=last_14, ordered_at__lte=last_7)
+
+        orders = user.orders.filter(active, status, p1 | p2 | p3 | p4, ths_week | lst_week)
+        return orders.order_by('-id')

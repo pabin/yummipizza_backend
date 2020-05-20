@@ -53,7 +53,7 @@ class ItemReviewCreateAPIView(APIView):
 
 
 """ Get Total Ratings count and Average Item Ratings of a Item """
-class ItemReviewListAPIView(APIView):
+class ItemRatingView(APIView):
     authentication_classes = (TokenAuthentication, )
     permission_classes = (IsAuthenticated, )
 

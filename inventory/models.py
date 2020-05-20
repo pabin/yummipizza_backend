@@ -30,6 +30,16 @@ class ItemInventory(models.Model):
     def __str__(self):
         return f"{self.name} - Medium: {self.ms_price} Large: {self.ls_price} "
 
+    def avg_rating(self):
+        item_ratings = self.ratings.all()
+
+        ratings_count = item_ratings.count()
+        rating_sum = item_ratings.aggregate(models.Sum('rating'))['rating__sum'] or 0
+        average_rating = rating_sum / ratings_count if rating_sum > 0 else 0
+
+        return average_rating
+
+
 
 """ OrderItem Table, Contains Item from ItemInventory model """
 class OrderItem(models.Model):

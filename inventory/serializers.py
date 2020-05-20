@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.db.models import Sum
 
 from .models import *
 from accounts.models import (
@@ -8,10 +9,20 @@ from accounts.models import (
 
 
 class ItemInventorySerializer(serializers.ModelSerializer):
+    ratings_value = serializers.SerializerMethodField()
 
     class Meta:
         model = ItemInventory
         exclude = ('item_reviews', 'ratings', 'created_at', 'is_active', )
+
+    def get_ratings_value(self, obj):
+        item_ratings = obj.ratings.all()
+
+        ratings_count = item_ratings.count()
+        rating_sum = item_ratings.aggregate(Sum('rating'))['rating__sum'] or 0
+        average_rating = (rating_sum / ratings_count) if rating_sum > 0 else 0 
+
+        return ({"total_ratings": ratings_count, "average_rating": average_rating})
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
