@@ -15,7 +15,6 @@ class DiscountSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-
 class ItemInventorySerializer(serializers.ModelSerializer):
     ratings_value = serializers.SerializerMethodField()
     discount = DiscountSerializer()
@@ -62,7 +61,6 @@ class OrderSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-
 class ShoppingCartItemSerializer(serializers.ModelSerializer):
     item = ItemInventorySerializer(read_only=True)
     item_id = serializers.PrimaryKeyRelatedField(
@@ -73,7 +71,6 @@ class ShoppingCartItemSerializer(serializers.ModelSerializer):
         model = ShoppingCartItem
         fields = '__all__'
         depth = 1
-
 
 
 class ShoppingCartSerializer(serializers.ModelSerializer):
