@@ -9,10 +9,12 @@ from .models import *
 
 class UserSerializer(serializers.ModelSerializer):
     valid_cart = serializers.SerializerMethodField()
-
+    # password = serializers.PrimaryKeyRelatedField(
+    #     queryset=Address.objects.all(), source='delivery_address', write_only=True
+    #     )
     class Meta:
         model = User
-        fields = ['id', 'valid_cart', 'username', 'user_image', 'address', 'contact', 'first_name', 'last_name', 'last_login']
+        fields = ['id', 'valid_cart', 'username', 'password', 'user_image', 'address', 'contact', 'first_name', 'last_name', 'last_login']
         depth = 1
 
     def get_valid_cart(self, obj):

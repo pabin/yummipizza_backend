@@ -131,7 +131,6 @@ class ShoppingCartCreateAPIView(APIView):
         }
 
         cartitem_serializer = ShoppingCartItemSerializer(data=request.data['cart_item'])
-        # cartitem_serializer = ShoppingCartItemSerializer(data=cart_item)
         cart_serializer = ShoppingCartSerializer(data={"active":True}, partial=True)
 
         if cart_serializer.is_valid() and cartitem_serializer.is_valid():
@@ -150,7 +149,7 @@ class ShoppingCartCreateAPIView(APIView):
 
             except Exception as e:
                 print("Exception: ", e)
-                return Response({"error": True, "message": "Exception"})
+                return Response({"error": True}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
