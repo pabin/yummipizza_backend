@@ -17,11 +17,12 @@ class DiscountSerializer(serializers.ModelSerializer):
 
 class ItemInventorySerializer(serializers.ModelSerializer):
     ratings_value = serializers.SerializerMethodField()
+    reviews_count = serializers.SerializerMethodField()
     discount = DiscountSerializer()
 
     class Meta:
         model = ItemInventory
-        exclude = ('item_reviews', 'ratings', 'created_at', 'is_active', )
+        exclude = ('item_reviews', 'ratings', 'views', 'created_at', 'is_active', )
 
     def get_ratings_value(self, obj):
         item_ratings = obj.ratings.all()
@@ -31,6 +32,10 @@ class ItemInventorySerializer(serializers.ModelSerializer):
         average_rating = (rating_sum / ratings_count) if rating_sum > 0 else 0
 
         return ({"total_ratings": ratings_count, "average_rating": average_rating})
+
+    def get_reviews_count(self, obj):
+        return obj.item_reviews.all().count()
+
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
