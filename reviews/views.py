@@ -12,6 +12,7 @@ from django.db.models import Sum
 
 from .serializers import *
 from inventory.models import ItemInventory
+from inventory.serializers import ItemInventorySerializer
 
 
 
@@ -79,16 +80,17 @@ class ItemRatingCreateAPIView(APIView):
         item =  get_object_or_404(ItemInventory, id=item_id)
 
         try:
-            user_rating = item.ratings.get(user=request.user, )
-            print("user_rating", user_rating)
+            user_rating = item.ratings.filter(user=request.user)[0]
             serializer = ItemRatingSerializer(user_rating, data=request.data)
             if serializer.is_valid():
                 serializer.save()
-                return Response(serializer.data, status=status.HTTP_200_OK)
-            else:
-                Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        except:
+                item_serializer = ItemInventorySerializer(item)
+                return Response(item_serializer.data, status=status.HTTP_200_OK)
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except Exception as e:
             """ No User rating for this item, create new rating  """
             serializer = ItemRatingSerializer(data=request.data, partial=True)
             if serializer.is_valid():
@@ -96,9 +98,11 @@ class ItemRatingCreateAPIView(APIView):
                     with transaction.atomic():
                         serializer.save()
                         item.ratings.add(serializer.data['id'])
-                        return Response(serializer.data, status=status.HTTP_200_OK)
+
+                        item_serializer = ItemInventorySerializer(item)
+                        return Response(item_serializer.data, status=status.HTTP_200_OK)
                 except Exception as e:
                     print("Exception: ", e)
                     return Response({"error": True}, status=status.HTTP_400_BAD_REQUEST)
             else:
-                Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

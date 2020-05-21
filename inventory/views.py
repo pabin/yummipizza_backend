@@ -98,12 +98,14 @@ class PopularItemListAPIView(generics.ListAPIView):
 
 
 """ Update the Views of a Item """
-class ItemViewsUpdateAPIView(APIView):
-    authentication_classes = (TokenAuthentication, )
-    permission_classes = (IsAuthenticated, )
+class ItemRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+    # authentication_classes = (TokenAuthentication, )
+    # permission_classes = (IsAuthenticated, )
+    queryset = ItemInventory.objects.filter(is_active=True)
+    serializer_class = ItemInventorySerializer
 
-    def put(self, request, item_id, format=None):
-        item = get_object_or_404(ItemInventory, id=item_id)
+    def put(self, request, pk, format=None):
+        item = get_object_or_404(ItemInventory, id=pk)
         item.views += 1
         item.save()
         return Response({"success": True})

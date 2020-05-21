@@ -15,5 +15,5 @@ urlpatterns = [
     path('order-filter/', OrderFilterAPIView.as_view(), name='order_filter'),
 
     path('popular-items/', PopularItemListAPIView.as_view(), name='popular_items_list'),
-    path('items/<int:item_id>/', ItemViewsUpdateAPIView.as_view(), name='update_item_views'),
+    path('item/<int:pk>/', ItemRetrieveUpdateAPIView.as_view(), name='update_item_views'),
 ]
