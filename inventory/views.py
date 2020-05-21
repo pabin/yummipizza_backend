@@ -43,12 +43,6 @@ class ItemFilterAPIView(generics.ListAPIView):
         reviews = self.request.query_params.getlist('reviews[]')
         sort_by = self.request.query_params.get('sort_by')
 
-        print('----------------')
-        print("types", types)
-        print("prices", prices)
-        print("reviews", reviews)
-        print("sort_by", sort_by)
-
         active = Q(is_active=True)
         itm_typ = Q(item_type__in=types) if types else Q()
 
@@ -79,14 +73,15 @@ class ItemFilterAPIView(generics.ListAPIView):
                 rat =  Q(ratings__isnull=False)
 
         items = ItemInventory.objects.filter(active, itm_typ, p1 | p2 | p3 | p4 | p5, rev | rat)
-        # items2 = ItemInventory.objects.filter(item_reviews__isnull=False)
-        # print("items2", items2)
+
         if (sort_by == "LOW_TO_HIGH"):
             return items.order_by('ls_price')
         elif (sort_by == "HIGHT_TO_LOW"):
             return items.order_by('-ls_price')
+        elif (sort_by == "POPULARITY"):
+            return items.order_by('-views')
         else:
-            return items.order_by('id')
+            return items
 
 
 
@@ -97,7 +92,7 @@ class PopularItemListAPIView(generics.ListAPIView):
     serializer_class = ItemInventorySerializer
 
     def get_queryset(self):
-        popular_items = ItemInventory.objects.filter().order_by('-views')[:6]
+        popular_items = ItemInventory.objects.filter().order_by('-views')[:4]
         return popular_items
 
 
