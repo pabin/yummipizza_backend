@@ -53,5 +53,5 @@ User Account  <br />
 Item Inventory <br />
 Shopping Cart Item <br />
 Shopping Cart <br />
-Order and Order Item <br />
-Reviews and Ratingss <br />
+Orders and Order Items <br />
+Reviews and Ratings <br />
