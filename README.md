@@ -1,23 +1,36 @@
-# yummipizza
+# The Yummi Pizza Backend
 
+### `Clone Repository`
 
-git clone https://github.com/pabin/yummipizza
+git clone https://github.com/pabin/yummipizza <br />
+Clones the backend code to you computer
 
-virtualenv -p python3 env
+### `Create Virtual Env`
 
-source env/bin/activate
+virtualenv -p python3 env <br />
+Creates a virtual invironment to `install` required packages
 
-pip install -r requirements.txt
+### `Activate Virtual Env`
 
-cd yummipizza
+source env/bin/activate <br />
+Activates the `virtual environment`, so you can install required<br />
+packages on the virtual environment
 
-python manage.py migrate
+### `Install Packages`
 
-python manage.py loaddata Discounts
+pip install -r requirements.txt  <br />
+Installs the packages listed in requirements.txt file
 
-python manage.py loaddata ItemInventory
+### `Project Pre-Setting`
 
-python manage.py runserver
+cd yummipizza <br />
+python manage.py migrate <br />
+python manage.py loaddata Discounts <br />
+python manage.py loaddata ItemInventory <br />
+python manage.py runserver <br />
+
+Move to the project root folder. Migrate to create the database models <br />
+then create default data like discounts and item inventory from fixtures.
 
 
 ## System Setup  
@@ -32,3 +45,13 @@ python manage.py runserver
 	  CREATE DATABASE yummipizzadb;
 	  GRANT ALL PRIVILEGES ON DATABASE yummipizzadb TO yummipizza;
     ```
+
+
+### `Available Features`
+
+User Account  <br />
+Item Inventory <br />
+Shopping Cart Item <br />
+Shopping Cart <br />
+Order and Order Item <br />
+Reviews and Ratingss <br />
