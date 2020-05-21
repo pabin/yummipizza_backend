@@ -1,5 +1,25 @@
 # yummipizza
 
+
+git clone https://github.com/pabin/yummipizza
+
+virtualenv -p python3 env
+
+source env/bin/activate
+
+pip install -r requirements.txt
+
+cd yummipizza
+
+python manage.py migrate
+
+python manage.py loaddata Discounts
+
+python manage.py loaddata ItemInventory
+
+python manage.py runserver
+
+
 ## System Setup  
 
 * Postgres Setup  
