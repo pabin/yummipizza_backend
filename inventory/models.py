@@ -115,7 +115,7 @@ class ShoppingCart(models.Model):
     def save(self, *args, **kwargs):
         """ Add Validity on Shooping Cart save """
         if not self.pk:
-            validity = timezone.now() + timedelta(0, 600) # Add 10 minutes validity
+            validity = timezone.now() + timedelta(0, 3600) # Add 1 hours validity
             self.validity = validity
         return super(ShoppingCart, self).save(*args, **kwargs)
 
