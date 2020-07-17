@@ -81,7 +81,7 @@ class ItemFilterAPIView(generics.ListAPIView):
         elif (sort_by == "POPULARITY"):
             return items.order_by('-views')
         else:
-            return items
+            return items.order_by('id')
 
 
 
