@@ -68,9 +68,9 @@ class ItemFilterAPIView(generics.ListAPIView):
         rev = rat = Q()
         for r in reviews:
             if (r=="REVIEWS"):
-                rev =  Q(item_reviews__isnull=False)
+                rev =  ~Q(item_reviews=None)
             elif (r=="RATINGS"):
-                rat =  Q(ratings__isnull=False)
+                rat =  ~Q(ratings=None)
 
         items = ItemInventory.objects.filter(active, itm_typ, p1 | p2 | p3 | p4 | p5, rev | rat)
 
