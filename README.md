@@ -43,6 +43,11 @@ python manage.py loaddata ItemInventory
 
 ```
 
+### Create superuser
+```
+python manage.py createsuperuser
+```
+
 ### Run Project
 ```
 python manage.py runserver
